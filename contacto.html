@@ -1,0 +1,34 @@
+<table>
+    <tr onclick="showHome();">
+        <td id="header">
+            <a>
+                <img src="images/caminoRealLogo.png" width="20%"/>
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td class="bgInterna">
+            <h1>Contacto</h1>
+            <form id="formContacto" onsubmit="return validacion()" method="">
+                <input type="text" value="Nombre" class="caja" id="nombre"/>
+                <input type="text" value="Email" class="caja" id="email"/>
+                <textarea class="caja" id="mensaje">Agregar mensaje</textarea>
+                <input type="submit" name="submit" value="Enviar"/>
+            </form>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+$(document).ready(function() {
+    $(".caja").focus(function() {
+        if (this.value == this.defaultValue) {
+            this.value = "";
+        }
+    }).blur(function() {
+        if (!this.value.length) {
+            this.value = this.defaultValue;
+        }
+    });
+});
+</script>
+<script type="text/javascript" src="js/contacto.js"></script>

@@ -1,0 +1,339 @@
+/* 
+    Document   : styles
+    Created on : Apr 9, 2013, 11:05:15 AM
+    Author     : MAS2
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica';
+    background: #0c2963;
+}
+
+tr,
+td {
+    padding: 0;
+}
+
+table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+#header {
+    background: #0f5093; 
+    text-align: center;
+}
+
+#header a {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+table#homecontenido {
+    border-spacing: 0;
+    background: #0c2963;
+    color: #ffffff;
+}
+
+table#homecontenido td {
+    text-align: right;
+    padding-right: 10px;
+    font-size: small;
+}
+
+table#homecontenido img {
+    float: left;
+}
+
+ul#menuprincipal {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+}
+
+ul#menuprincipal li {
+    border-bottom: 2px solid #f2f0f0;
+    background-size: auto 6 0%;
+}
+
+ul#menuprincipal li a {
+    display: block;
+    width: 87%;
+    height: 100%;
+    padding-left: 13%;
+    font-size: 1.1em;
+    line-height: 3em;
+    font-size: medium;
+    background: url('../images/flechamenuprincipal.png') no-repeat;
+    background-position: 96% 50%;
+}
+
+li#reservarmenu {
+    background: url('../images/reservarbgmenu.png') no-repeat 3% 50%;
+}
+
+li#habitacionesmenu {
+    background: url('../images/habitacionesbgmenu.png') no-repeat 2% 50%;
+}
+
+li#serviciosmenu {
+    background: url('../images/serviciosbgmenu.png') no-repeat 3% 50%;
+
+}
+
+li#restaurantesmenu {
+    background: url('../images/restaurantebgmenu.png') no-repeat 4% 50%;
+}
+
+li#banquetesmenu {
+    background: url('../images/banquetesbgmenu.png') no-repeat 3% 50%;
+}
+
+li#promocionesmenu {
+    background: url('../images/promocionesbgmenu.png') no-repeat 3% 50%;
+}
+
+li#facilidadesmenu {
+    background: url('../images/facilidadesbgmenu.png') no-repeat 3% 50%;
+}
+
+li#mapasmenu {
+    background: url('../images/mapasbgmenu.png') no-repeat 3% 50%;
+}
+
+li#contactomenu {
+    background: url('../images/contactobgmenu.png') no-repeat 3% 50%;
+}
+
+h1 {
+    color: #ffffff;
+    background: #1f61a2;
+    text-align: center;
+    font-weight: normal;
+    margin: 0;
+    font-size: 0.8em;
+    line-height: 1.5em;
+}
+
+ul#menuinternoslistado {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul#menuinternoslistado li {
+    width: 96%;
+    padding-left: 4%;
+    background: url('../images/listadohabitacionesflecha.png') no-repeat 95% 50% #e8e8e8;
+    font-size: 1em;
+    line-height: 3em;
+    border-bottom: 2px solid #d1d1d1;
+}
+
+div#tituloInterna {
+    position: relative;
+    width: 86%;
+    margin: 2% 7%;
+    border-bottom: 5px solid #24619f;
+    font-size: 1.5em;
+    color: #24619f;
+    line-height: 1.7em;
+}
+
+td.bgInterna {
+    background: #e8e8e8;
+}
+
+div#tituloInterna img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+}
+
+div#contenidoInterna {
+    position: relative;
+    width: 86%;
+    margin: 0 7%;
+}
+
+div#contenidoInterna > img {
+    border: 3px solid #ffffff;
+}
+
+div#contenidoInterna p {
+    font-size: 1em;
+    text-align: justify;
+    color: #4e4e4e;
+    margin: 2% 0 0 0;
+}
+
+div#contenidoGaleria img {
+    margin: 4% 0 0 4%;
+    float: left;
+    border: 2px solid transparent;
+}
+
+img#contactoButton {
+    right: 11% !important;
+}
+
+form#formContacto {
+    width: 90%;
+    margin: 5%;
+}
+
+form#formContacto input {
+    width: 96%;
+    padding: 0 2%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    line-height: 1.9em;
+    outline: none;
+    color: #a7a7a7;
+    margin: 0 0 2% 0;
+}
+
+form#formContacto input[type="submit"] {
+    color: #ffffff !important;
+    background: #0f4e90;
+    font-size: 0.9em !important;
+    width: 100% !important;
+}
+
+form#formContacto textarea {
+    font-size: 1em;
+    width: 96%;
+    max-width: 96%;
+    padding: 0 2%;
+    border: 1px solid #ccc;
+    min-height: 100px;
+    border-radius: 5px;
+    outline: none;
+    line-height: 1.9em;
+    color: #a7a7a7;
+    margin: 0 0 2% 0;
+}
+
+div#menu-buttons {
+    color: #ffffff;
+}
+
+div#mapa {
+}
+
+a#enlaceContactoPromocionesInterna {
+    display: block;
+    width: 100%;
+    font-size: 1.1em;
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.7em;
+    text-align: center;
+    background: #0d4481;
+    border-radius: 5px;
+}
+
+div#contenidoInterna h2 {
+    color: #0f4c8d;
+    margin-top: 3%;
+    font-size: 1.1em;
+    line-height: 1.4em;
+}
+
+div#reservarContainer {
+    width: 90%;
+    margin: 0 5%;
+}
+
+div#reservarContainer h2 {
+    margin: 0;
+    font-size: 1.2em;
+    line-height: 2em;
+    color: #0f4c8d;
+}
+
+td#reservarContenido {
+    background: #e8e8e8;
+}
+
+.datepicker {
+    width: 100%;
+    text-align: center;
+    border: 0;
+    font-size: 1em;
+    line-height: 1.8em;
+    background: #0f5092;
+    color: #ffffff;
+    border-radius: 5px;
+    margin-bottom: 2%;
+}
+
+div.filaReservar {
+    width: 100%;
+    overflow: hidden;
+}
+
+div.filaReservar label{
+    width: 50%;
+    float: left;
+    font-size: 1em;
+    line-height: 1.9em;
+    color: #0f4d8e;
+}
+
+div.filaReservar select {
+    width: 45%;
+    float: right;
+    font-size: 1em;
+    line-height: 1.9em;
+    border: 1px solid #ffffff;
+}
+
+form#formReservar input {
+    border: 1px solid #ffffff;
+}
+
+form#formReservar input[type="submit"]{
+    width: 100%;
+    font-size: 1em;
+    line-height: 1.6em;
+    color: #ffffff;
+    background: #0f4d8e;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+}
+#modalCanvas{
+	position:fixed;
+	z-index:999;
+	width: 100%;
+	height: 150%;
+	background-color:#000;
+	opacity: 0.6;
+	top:0;
+	left:0;
+	display:none;
+}
+
+#loadingCanvas{
+	position:fixed;
+	z-index:1000;
+	background-color:#FFF;
+	border-radius:10px;
+	margin: 0 auto;
+	left:20%;
+	right:20%;
+	top: 25%;
+	text-align:center;
+	padding-top:10%;
+	padding-bottom:10%;
+	display:none;
+}

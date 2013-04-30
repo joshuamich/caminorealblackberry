@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets"
+        xmlns:rim="http://www.blackberry.com/ns/widgets"
+        version="2.0.0.0" id="sampleapp">
+ 
+    <author href="http://www.masdigital.me/"
+            rim:copyright="Copyright 1998-2013 MAS">Copyright 1998-2013 MAS
+    </author>
+ 
+    <name>Hotel Camino Real</name>
+ 
+    <description>
+        Hotel Camino Real
+    </description>
+    <rim:orientation mode="auto"/>
+  
+    <rim:navigation mode="focus" />
+ 
+    <rim:loadingScreen backgroundcolor="#FFFFFF" 
+                       onLocalPageLoad="true"
+                       backgroundImage="images/backgroundgray.png" 
+                       foregroundImage="images/home/loading.gif"
+                       onFirstLaunch="true">
+        <rim:transitionEffect type="zoomIn"/>
+    </rim:loadingScreen>
+    <icon src="images/icon.png"/>
+    <icon src="images/icon.png" rim:hover="true"/>
+ 
+    <rim:cache maxCacheSizeTotal="2048" maxCacheSizeItem ="256" />
+ 
+    <content src="index.html" >
+    </content>
+ 
+    <feature id="blackberry.ui.dialog" />
+    <feature id="blackberry.invoke" />
+    <feature id="blackberry.invoke.BrowserArguments" />
+    <feature id="blackberry.identity" />
+    <feature id="blackberry.system.event" />
+    <feature id="blackberry.invoke.CameraArguments" />
+    <feature id="blackberry.ui.menu" />
+    <access subdomains="true" uri="http://gstatic.com"/>
+    <access subdomains="true" uri="http://google.com"/>
+    <access subdomains="true" uri="http://googleapis.com"/>
+    <access subdomains="true" uri="http://innotechsa.com"/>
+    <access subdomains="true" uri="http://ustream.tv"/>
+    <access subdomains="true" uri="http://youtube.com"/>
+    <access subdomains="true" uri="http://ustream.tv"/>
+    <access subdomains="true" uri="https://google-developers.appspot.com"/>
+	
+	
+    <rim:connection timeout="25000">
+        <id>TCP_WIFI</id>
+        <id>MDS</id>
+        <id>BIS-B</id>
+        <id>TCP_CELLULAR</id>
+        <id>WAP2</id>
+        <id>WAP</id>
+    </rim:connection>
+ 
+    <license>
+        Example license
+        Copyright (c) 2012 INNOVATIVE TECHNOLOGIES S.A. .
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+        EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+        MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+        NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+        BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+        ACTION OF CONTRACT, INSULT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+        CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+    </license>
+</widget>

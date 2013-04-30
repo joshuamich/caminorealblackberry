@@ -1,0 +1,32 @@
+<table>
+    <tr onclick="showHome();">
+        <td id="header">
+            <a>
+                <img src="images/caminoRealLogo.png" width="20%"/>
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <ul id="menuprincipal">
+                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showReservar();" id="reservarmenu"><a>Reservar</a></li>
+                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showHabitaciones();" id="habitacionesmenu"><a>Habitaciones</a></li>
+                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showServicios();" id="serviciosmenu"><a>Servicios</a></li>
+                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showRestaurantes();" id="restaurantesmenu"><a>Restaurantes</a></li>
+                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showBanquetes();" id="banquetesmenu"><a>Banquetes</a></li>
+                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showPromociones();" id="promocionesmenu"><a>Promociones</a></li>
+                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showFacilidades();" id="facilidadesmenu"><a>Facilidades</a></li>
+                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showMapas();" id="mapasmenu"><a>Mapas</a></li>
+                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showContacto()();" id="contactomenu"><a>Contacto</a></li>
+            </ul>
+        </td>
+    </tr>
+</table>
+<script type="text/javascript">
+blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,function() {   
+       showLoading();
+	    var myfileurl="index.html";	
+		$('body').load(myfileurl, function() {
+		});
+    });
+</script>
