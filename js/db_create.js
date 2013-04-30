@@ -22,7 +22,7 @@
 		if (typeof mynamespace === 'undefined') {
 			mynamespace = {};
 		}
-				
+		var last_sync_date;			
 				
 		(function () {
 				function onDBCreate(database) {
@@ -50,6 +50,8 @@
 									function (tx, err) {	alert("ERROR - Table creation failed - code: " + err.code + ", message: " + err.message);	}
 									);
 									
+									
+									
 								}
 						);
 				}
@@ -73,6 +75,7 @@
 							}
 						}
 					);
+				getContenidos();
 			}
 		}
 		
@@ -141,6 +144,7 @@
 							}
 						}
 					);
+					getGalerias();
 			}
 		}
 		
@@ -161,11 +165,49 @@
 							}
 						}
 					);
+					init();
 			}
 		}
 
 /*END DB OPERATIONS*/
 
+/***********		Version Controller		*************/
+
+		if (false && blackberry.system.hasDataCoverage()) {
+			getNewData();	
+		}else{
+			log('No data coverage');
+			displayHoteles();	
+		}
+		
+		function getNewData(){
+				if(mynamespace.db){
+					mynamespace.db.readTransaction(
+						function (t) {
+							t.executeSql('SELECT COALESCE(MAX(fecha),DATE("now")) last_sync FROM (SELECT MAX(updated) fecha FROM hoteles UNION SELECT MAX(updated) fecha FROM contenidos ) aux_table', [], 
+										function (tx, results) {
+												var i;
+												var len = results.rows.length;
+												var last_date_sync;
+												for (i = 0; i < len; i++) {
+														 last_date_sync=results.rows.item(i).last_sync;
+												}
+												
+												if(last_date_sync){
+														last_sync_date=last_date_sync;
+														getHoteles();
+												}
+										}
+							);
+						}
+					);
+				}
+		}
+
+		function init(){
+				
+			
+		}
 /***********		XML OPERATIONS			*************/
 		function parse_insert_hoteles(xmlstring){
 				var parser		 = 	new DOMParser();
@@ -231,10 +273,10 @@
 
 
 		function parse_insert_galerias(xmlstring){
-					var parser		 = 	new DOMParser();
-					var xmlDocument  = 	parser.parseFromString( xmlstring, "text/xml" );
-					var items 	 	 = 	xmlDocument.getElementsByTagName("item");
-					var tableContent = "";
+					var parser		  = 	new DOMParser();
+					var xmlDocument   = 	parser.parseFromString( xmlstring, "text/xml" );
+					var items 	 	  = 	xmlDocument.getElementsByTagName("item");
+					var tableContent  = "";
 					var array_galerias= new Array();
 				
 					for (var i = 0; i < items.length; i++) {   
@@ -254,7 +296,6 @@
 									if(!fail && item_contenido.length == 3){
 											array_galerias[array_galerias.length] = item_contenido;
 									}
-									
 							}
 						}
 					}
