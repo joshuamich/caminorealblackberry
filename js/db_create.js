@@ -49,9 +49,6 @@
 									function (tx, res) {	alert("Table Created Successfully");	},
 									function (tx, err) {	alert("ERROR - Table creation failed - code: " + err.code + ", message: " + err.message);	}
 									);
-									
-									
-									
 								}
 						);
 				}
@@ -165,7 +162,7 @@
 							}
 						}
 					);
-					init();
+					//init();		<--	Display data
 			}
 		}
 
@@ -177,7 +174,7 @@
 			getNewData();	
 		}else{
 			log('No data coverage');
-			displayHoteles();	
+			//init();		<-- Display data
 		}
 		
 		function getNewData(){
@@ -204,10 +201,7 @@
 				}
 		}
 
-		function init(){
-				
-			
-		}
+		
 /***********		XML OPERATIONS			*************/
 		function parse_insert_hoteles(xmlstring){
 				var parser		 = 	new DOMParser();

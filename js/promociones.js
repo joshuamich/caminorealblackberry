@@ -1,8 +1,7 @@
-// JavaScript Document
+// JavaScript Document// JavaScript Document
 var hoteles_id = $("body").attr("rel");
 
-function displayHabitaciones() {
-	
+function displayPromociones() {
 			blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,function() {   
 			   showLoading();
 				var myfileurl="menuprincipal.html";	
@@ -12,7 +11,7 @@ function displayHabitaciones() {
 			if(mynamespace.db){
 					mynamespace.db.readTransaction(
 						function (t) {
-							t.executeSql('SELECT id, nombre  FROM contenidos WHERE hoteles_id='+hoteles_id+' AND tipo = "Habitacion" ORDER BY nombre ASC', [], 
+							t.executeSql('SELECT id, nombre  FROM contenidos WHERE hoteles_id = '+hoteles_id+' AND tipo = "Promocion" ORDER BY nombre ASC', [], 
 										function (tx, results) {
 												var i;
 												var len = results.rows.length;
@@ -29,5 +28,5 @@ function displayHabitaciones() {
 }
 
 if(hoteles_id != ""){
-	displayHabitaciones();
+	displayPromociones();
 }

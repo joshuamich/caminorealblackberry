@@ -4,6 +4,12 @@ imagenDestacada.style.width = anchoVentana * 0.86 - 6 + "px";
 var contenidos_id = $("body").attr("page_id");
 
 function displayContenido() {
+			blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,function() {   
+			   showLoading();
+				var myfileurl="menuprincipal.html";	
+				$('body').load(myfileurl, function() {
+				});
+			});
 			if(mynamespace.db){
 					mynamespace.db.readTransaction(
 						function (t) {

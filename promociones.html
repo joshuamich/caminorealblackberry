@@ -10,10 +10,20 @@
         <td>
             <h1>Promociones</h1>
             <ul id="menuinternoslistado">
-                <li x-blackberry-focusable="true" onmouseover="highlightHabitaciones(this);" onmouseout="unhighlightHabitaciones(this);" onclick="showPromocionesInterna();">Negocios</li>
+                <!--<li x-blackberry-focusable="true" onmouseover="highlightHabitaciones(this);" onmouseout="unhighlightHabitaciones(this);" onclick="showPromocionesInterna();">Negocios</li>
                 <li x-blackberry-focusable="true" onmouseover="highlightHabitaciones(this);" onmouseout="unhighlightHabitaciones(this);" onclick="showPromocionesInterna();">Placer</li>
-                <li x-blackberry-focusable="true" onmouseover="highlightHabitaciones(this);" onmouseout="unhighlightHabitaciones(this);" onclick="showPromocionesInterna();">Semana Santa</li>
+                <li x-blackberry-focusable="true" onmouseover="highlightHabitaciones(this);" onmouseout="unhighlightHabitaciones(this);" onclick="showPromocionesInterna();">Semana Santa</li>-->
             </ul>
         </td>
     </tr>
 </table>
+<div id="modalCanvas">
+</div>
+<div id="loadingCanvas" style="text-align:center;">
+    <img src="./images/loading.gif" style="position:relative; left:50%; margin-left:-16px; top:-16px;"/>
+    <br />
+    <a style="font-size:medium;">Cargando...</a>
+    <br />
+    <a style="font-size:small;">Buscando actualizaciones.</a>
+</div>
+<script type="text/javascript" src="js/promociones.js"></script>

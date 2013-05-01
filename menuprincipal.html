@@ -1,5 +1,5 @@
 <table>
-    <tr onclick="showHome();">
+    <tr onclick="">
         <td id="header">
             <a>
                 <img src="images/caminoRealLogo.png" width="20%"/>
@@ -17,16 +17,20 @@
                 <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showPromociones();" id="promocionesmenu"><a>Promociones</a></li>
                 <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showFacilidades();" id="facilidadesmenu"><a>Facilidades</a></li>
                 <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showMapas();" id="mapasmenu"><a>Mapas</a></li>
-                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showContacto()();" id="contactomenu"><a>Contacto</a></li>
+                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showContacto();" id="contactomenu"><a>Contacto</a></li>
             </ul>
         </td>
     </tr>
 </table>
-<script type="text/javascript">
-blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,function() {   
-       showLoading();
-	    var myfileurl="index.html";	
-		$('body').load(myfileurl, function() {
-		});
-    });
+</table>
+<div id="modalCanvas">
+</div>
+<div id="loadingCanvas" style="text-align:center;">
+    <img src="./images/loading.gif" style="position:relative; left:50%; margin-left:-16px; top:-16px;"/>
+    <br />
+    <a style="font-size:medium;">Cargando...</a>
+    <br />
+    <a style="font-size:small;">Buscando actualizaciones.</a>
+</div>
+<script type="text/javascript" src="js/menuPrincipal.js">
 </script>
