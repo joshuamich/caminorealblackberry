@@ -38,7 +38,7 @@ function showRestaurantes() {
 
 function showBanquetes() {
    showLoading();
-    var myfileurl = "internas.html";
+    var myfileurl = "banquetes.html";
     $('body').load(myfileurl, function() {
     });
 }
@@ -64,11 +64,5 @@ function showMapas() {
     });
 }
 
-function showContacto() {
-    showLoading();
-    var myfileurl = "contacto.html";
-    $('body').load(myfileurl, function() {
-    });
-}
-	
+
 initMenuPrincipal();

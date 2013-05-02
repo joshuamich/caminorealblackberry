@@ -2,7 +2,7 @@
 var hoteles_id = $("body").attr("rel");
 
 function displayHabitaciones() {
-	
+			return_page="habitaciones.html";
 			blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,function() {   
 			   showLoading();
 				var myfileurl="menuprincipal.html";	

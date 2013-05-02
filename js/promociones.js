@@ -2,6 +2,7 @@
 var hoteles_id = $("body").attr("rel");
 
 function displayPromociones() {
+			return_page="promociones.html";
 			blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,function() {   
 			   showLoading();
 				var myfileurl="menuprincipal.html";	

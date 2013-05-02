@@ -25,57 +25,5 @@
 		$('body').load(myfileurl, function() {});
 	}
 	
-	function showInternas() {
-		// file to embed
-		//showLoading();
-		var myfileurl = "internas.html";
-		$('body').load(myfileurl, function() {
-		});
-	}
-	
-	function showInternas_Habitacion(contenidos_id) {
-		
-	   // showLoading();
-		$("body").attr("page_id", contenidos_id);
-		var myfileurl = "internas.html";
-		$('body').load(myfileurl, function() {
-		});
-	}
-	
-	
-	function showGaleria() {
-		// file to embed
-	//    showLoading();
-		var myfileurl = "galeria.html";
-		$('body').load(myfileurl, function() {
-		});
-	}
-	
-	function showContacto() {
-		// file to embed
-		//showLoading();
-		var myfileurl = "contacto.html";
-		$('body').load(myfileurl, function() {
-		});
-	}
-	
-	function showInternaFotografia(objectImg) {
-		// file to embed
-		//showLoading();
-		//log(objectImg.src);
-		var myfileurl = "InternaFotografia.html";
-		$('body').load(myfileurl, function() { 
-				$('#imagen_galeria').attr("src", objectImg.src);
-		});
-		
-	}
-	
-	function showPromocionesInterna() {
-		// file to embed
-		//showLoading();
-		var myfileurl = "interiorPromociones.html";
-		$('body').load(myfileurl, function() {
-		});
-	}
 	
 	init_home();
