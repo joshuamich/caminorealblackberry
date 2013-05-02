@@ -1,3 +1,15 @@
+	if (typeof mynamespace === 'undefined') {
+			mynamespace = {};
+	}
+	
+	if (window.openDatabase){
+						mynamespace.db = window.openDatabase('caminoreal', '', 'Camino Real DB', 10 * 1024 * 1024, error_onDB);
+	}
+	
+	function error_onDB(){
+			alert('error on DB please restart application');	
+	}
+		
 	function init_home(){
 			if(mynamespace.db){
 					mynamespace.db.readTransaction(
