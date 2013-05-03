@@ -23,18 +23,25 @@ var bar = new Array();
 var servicios = new Array();
 var gasolineras = new Array();
 var restaurantes = new Array();
+var mapOptions;
+var map;
 
-var mapOptions = {
-    center: new google.maps.LatLng(14.594797, -90.51778),
-    zoom: 15,
-    mapTypeId: google.maps.MapTypeId.ROADMAP,
-    streetViewControl: false,
-    zoomControl: false,
-    overviewMapControl: false,
-    mapTypeControl: false
-};
+function initmap(){
+	mapOptions = {
+		center: new google.maps.LatLng(14.594797, -90.51778),
+		zoom: 15,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		streetViewControl: false,
+		zoomControl: false,
+		overviewMapControl: false,
+		mapTypeControl: false
+	};
+	map = new google.maps.Map(document.getElementById("mapa"), mapOptions);
+	
+	demoData();
+	
+}
 
-var map = new google.maps.Map(document.getElementById("mapa"), mapOptions);
 
 function crearMarcador(lat, long, iconoUrl) {
     var location = new google.maps.LatLng(lat, long);
@@ -123,7 +130,7 @@ function hideServicios() {
 }
 
 /********************* Agregando Bares **********************/
-
+function demoData(){
 crearMarcador(14.594797, -90.51778, barIcon);
 crearMarcador(14.592482, -90.522054, barIcon);
 crearMarcador(14.59109, -90.518031, barIcon);
@@ -145,7 +152,7 @@ crearMarcador(14.594558, -90.514061, gasolinerasIcon);
 crearMarcador(14.597008, -90.513514, restauranteIcon);
 crearMarcador(14.594922, -90.515778, restauranteIcon);
 crearMarcador(14.597424, -90.517967, restauranteIcon);
-
+}
 function mostrarRestaurantes() {
     showRestaurantes();
     hideGasolineras();
@@ -173,3 +180,6 @@ function mostrarServiciosViajes() {
     hideBar();
     showServicios();
 }
+
+	initmap();
+	
