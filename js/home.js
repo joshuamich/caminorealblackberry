@@ -19,7 +19,7 @@
 	}
 	
 	function error_onDB(database){
-		
+		log('error open db in home.js');
 	}	
 	/*function error_onDB(database){
 			function onDBCreate(database) {
