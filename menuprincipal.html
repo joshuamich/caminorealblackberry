@@ -9,15 +9,15 @@
     <tr>
         <td>
             <ul id="menuprincipal">
-                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showReservar();" id="reservarmenu"><a>Reservar</a></li>
-                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showHabitaciones();" id="habitacionesmenu"><a>Habitaciones</a></li>
-                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showServicios();" id="serviciosmenu"><a>Servicios</a></li>
-                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showRestaurantes();" id="restaurantesmenu"><a>Restaurantes</a></li>
-                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showBanquetes();" id="banquetesmenu"><a>Banquetes</a></li>
-                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showPromociones();" id="promocionesmenu"><a>Promociones</a></li>
-                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showFacilidades();" id="facilidadesmenu"><a>Facilidades</a></li>
-                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showMapas();" id="mapasmenu"><a>Mapas</a></li>
-                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showContacto();" id="contactomenu"><a>Contacto</a></li>
+                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showReservar();" id="reservarmenu"><a id="button_reservar">Reservar</a></li>
+                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showHabitaciones();" id="habitacionesmenu"><a id="button_habitaciones">Habitaciones</a></li>
+                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showServicios();" id="serviciosmenu"><a id="button_servicios">Servicios</a></li>
+                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showRestaurantes();" id="restaurantesmenu"><a id="button_restaurantes">Restaurantes</a></li>
+                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showBanquetes();" id="banquetesmenu"><a id="button_banquetes">Banquetes</a></li>
+                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showPromociones();" id="promocionesmenu"><a id="button_promociones">Promociones</a></li>
+                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showFacilidades();" id="facilidadesmenu"><a id="button_facilidades">Facilidades</a></li>
+                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showMapas();" id="mapasmenu"><a id="button_mapa">Mapas</a></li>
+                <li x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showContacto();" id="contactomenu"><a id="button_contacto">Contacto</a></li>
             </ul>
         </td>
     </tr>
@@ -26,7 +26,7 @@
 <div id="modalCanvas">
 </div>
 <div id="loadingCanvas" style="text-align:center;">
-    <img src="images/loading.gif" style="position:relative; left:50%; margin-left:-16px; top:-16px;"/>
+    <img src="images/loading.gif" style="margin: 0 auto;"/>
     <br />
     <a style="font-size:medium;">Cargando...</a>
     <br />

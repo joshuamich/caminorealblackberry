@@ -21,14 +21,45 @@ function displayContenido() {
 												var len = results.rows.length;
 												var html_item = '';
 												for (i = 0; i < len; i++) {
-														 document.getElementById('texto_titulo').innerHTML=results.rows.item(i).nombre;	
-														 document.getElementById('descripcion_interna').innerHTML=results.rows.item(i).descripcion;		
+														 var nombre=results.rows.item(i).nombre;
+														 		if(idioma=='en'){nombre=results.rows.item(i).nombre_en;}
+														 var descripcion=results.rows.item(i).descripcion;
+														 		if(idioma=='en'){descripcion=results.rows.item(i).descripcion_en;}
+														 var tipo= results.rows.item(i).tipo;
+														 var tipo_nombre=tipo;
+															if(idioma=='en'){
+																 switch(tipo)
+																	{
+																	  case 'Habitacion':
+																	  		tipo_nombre="Room";
+																	  break;
+																	  case 'Servicio':
+																	  		tipo_nombre="Service";
+																	  break;
+																	  case 'Restaurante':
+																	  		tipo_nombre="Restaurant";
+																	  break;
+																	  case 'Promocion':
+																	  		tipo_nombre="Promotion";
+																	  break;
+																	 case 'Banquete':
+																	 		tipo_nombre="Banquet";
+																	  break;
+																	  case 'Facilidad':
+																	  		tipo_nombre="Facility";
+																	  break;
+																	default:
+																	 		tipo_nombre="";
+																	 break;
+																	}
+															}
+														 document.getElementById('texto_titulo').innerHTML=nombre;
+														 document.getElementById('descripcion_interna').innerHTML=descripcion;		
 														 document.getElementById('destacada').src="data:image/jpeg;base64,"+results.rows.item(i).imagen_destacada;
-														 document.getElementById('titulo_tipo').innerHTML=results.rows.item(i).tipo;															 
+														 document.getElementById('titulo_tipo').innerHTML=tipo_nombre;															 
 														
-														// html_item = html_item + '<tr x-blackberry-focusable="true" onmouseover="highlight(this);" onmouseout="unhighlight(this);" onclick="showMenuPrincipal_hotel('+results.rows.item(i).id+');"><td><img src="data:image/jpeg;base64,'+results.rows.item(i).imagen+'" width="100%"/></td><td>'+results.rows.item(i).nombre+'</td></tr>';
 												}
-												//document.getElementById('homecontenido').innerHTML=html_item;
+												
 										}
 							);
 						}

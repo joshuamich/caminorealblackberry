@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets"
         xmlns:rim="http://www.blackberry.com/ns/widgets"
-        version="2.0.0.0" id="sampleapp">
+        version="2.0.0.0" id="CaminorealApp">
  
     <author href="http://www.masdigital.me/"
             rim:copyright="Copyright 1998-2013 MAS">Copyright 1998-2013 MAS
@@ -39,16 +39,14 @@
     <feature id="blackberry.invoke.CameraArguments" />
     <feature id="blackberry.ui.menu" />
     <access subdomains="true" uri="http://gstatic.com"/>
-    <access subdomains="true" uri="http://google.com"/>
     <access subdomains="true" uri="http://googleapis.com"/>
     <access subdomains="true" uri="http://innotechsa.com"/>
     <access subdomains="true" uri="http://ustream.tv"/>
     <access subdomains="true" uri="http://youtube.com"/>
-    <access subdomains="true" uri="http://ustream.tv"/>
     <access subdomains="true" uri="https://google-developers.appspot.com"/>
 	
 	
-    <rim:connection timeout="25000">
+    <rim:connection timeout="600000">
         <id>TCP_WIFI</id>
         <id>MDS</id>
         <id>BIS-B</id>

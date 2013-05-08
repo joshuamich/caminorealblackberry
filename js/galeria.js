@@ -7,6 +7,9 @@
 	return_page=return_page+'';
 
 	function displayGaleria() {
+				if(idioma=='en'){
+					document.getElementById('titulo_pagina').innerHTML="Gallery";
+				}
 				blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,function() {   
 				    showLoading();
 					var myfileurl="internas.html";	

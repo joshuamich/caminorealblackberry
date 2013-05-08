@@ -1,5 +1,5 @@
 <table>
-    <tr onclick="showHome();">
+    <tr>
         <td id="header">
             <a>
                 <img src="images/caminoRealLogo.png" width="20%"/>
@@ -10,29 +10,29 @@
         <td id="reservarContenido">
             <h1>Reservar</h1>
             <div id="reservarContainer">
-                <h2>Book a Room</h2>
+                <h2>Reservar</h2>
                 <form id="formReservar">
                     <input type="text" class="datepicker" value="Check In" x-blackberry-focusable="true" onmouseover="highlightBotonTitulo(this);" onmouseout="unhighlightBotonTitulo(this);"/>
                     <input type="text" class="datepicker" value="Check Out" x-blackberry-focusable="true" onmouseover="highlightBotonTitulo(this);" onmouseout="unhighlightBotonTitulo(this);"/>
                     <div class="filaReservar">
-                        <label>Persons</label>
+                        <label>Personas</label>
                         <select name="adultos" x-blackberry-focusable="true" onmouseover="highlightBotonTitulo(this);" onmouseout="unhighlightBotonTitulo(this);">
-                            <option>1 Adults</option>
-                            <option>2 Adults</option>
-                            <option>3 Adults</option>
-                            <option>4 Adults</option>
+                            <option>1 Adulto</option>
+                            <option>2 Adulto</option>
+                            <option>3 Adulto</option>
+                            <option>4 Adulto</option>
                         </select>
                     </div>
                     <div class="filaReservar">
                         <select name="kids" x-blackberry-focusable="true" onmouseover="highlightBotonTitulo(this);" onmouseout="unhighlightBotonTitulo(this);">
-                            <option>1 Kids</option>
-                            <option>2 Kids</option>
-                            <option>3 Kids</option>
-                            <option>4 Kids</option>
+                            <option>1 Niño</option>
+                            <option>2 Niños</option>
+                            <option>3 Niños</option>
+                            <option>4 Niños</option>
                         </select>
                     </div>
                     <div class="filaReservar">
-                        <label>Rooms</label>
+                        <label>Habitaciones</label>
                         <select name="adultos" x-blackberry-focusable="true" onmouseover="highlightBotonTitulo(this);" onmouseout="unhighlightBotonTitulo(this);">
                             <option>1</option>
                             <option>2</option>
@@ -41,17 +41,26 @@
                         </select>
                     </div>
                     <div class="filaReservar">
-                        <label>Best Rate Guaranteed</label
-                    </div>
+                        <label>Mejor Tarifa Garantizada</label
+                    ></div>
                     <input type="submit" value="Send" x-blackberry-focusable="true" onmouseover="highlightBotonTitulo(this);" onmouseout="unhighlightBotonTitulo(this);"/>
                 </form>
             </div>
         </td>
     </tr>
 </table>
-
+<div id="modalCanvas">
+</div>
+<div id="loadingCanvas" style="text-align:center;">
+    <img src="images/loading.gif" style="margin: 0 auto;"/>
+    <br />
+    <a style="font-size:medium;">Cargando...</a>
+    <br />
+    <a style="font-size:small;">Buscando actualizaciones.</a>
+</div>
 <script type="text/javascript">
         $(function() {
             $(".datepicker").datepicker();
         });
 </script>
+<script type="text/javascript" src="js/reservar.js"></script>

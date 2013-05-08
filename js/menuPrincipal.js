@@ -1,10 +1,29 @@
 function initMenuPrincipal(){
+	if (blackberry.ui.menu.getMenuItems().length > 0) {
+		blackberry.ui.menu.clearMenuItems();
+	}
+	
 	blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,function() {   
 	   showLoading();
 		var myfileurl="home.html";	
 		$('body').load(myfileurl, function() {
 		});
 	});	
+	
+	if(idioma=='en'){
+			document.getElementById('button_reservar').innerHTML="Book";
+			document.getElementById('button_habitaciones').innerHTML="Rooms";
+			document.getElementById('button_servicios').innerHTML="Services";
+			document.getElementById('button_restaurantes').innerHTML="Restaurants";
+			document.getElementById('button_banquetes').innerHTML="Banquet";
+			document.getElementById('button_promociones').innerHTML="Promotions";
+			document.getElementById('button_facilidades').innerHTML="Facilities";
+			document.getElementById('button_mapa').innerHTML="Maps";
+			document.getElementById('button_contacto').innerHTML="Contact";
+			
+	}
+	
+	
 }	
 
 

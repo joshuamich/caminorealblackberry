@@ -6,6 +6,7 @@
 	var contenidos_id;
 	var galerias_id;
 	var return_page;
+	var idioma="es";
 /****************************Navigation Functions****************************/
 
 	function highlight(e) {
@@ -38,17 +39,6 @@
 	
 	function unhighlightGaleriaItems(e) {
 		e.style.border = "2px solid transparent";
-	}
-
-/******************************Action Functions******************************/
-	function showLoading(){
-		document.getElementById("modalCanvas").style.display = 'block';
-		document.getElementById("loadingCanvas").style.display = 'block';
-	}
-	
-	function hideLoading(){
-		document.getElementById("modalCanvas").style.display = 'none';
-		document.getElementById("loadingCanvas").style.display = 'none';
 	}
 
 /****************************NAVIGATION***********************************/
@@ -94,9 +84,18 @@
 		});
 	}
 
+	
 	function init(){
-		 showLoading();
-		 var myfileurl = "home.html";
-		 $('body').load(myfileurl, function() {});
+			 showLoading();
+			 var myfileurl = "home.html";
+			 $('body').load(myfileurl, function() {});
+	}
+		
+	function cambiar_idioma(nuevo_idioma){
+		idioma=nuevo_idioma;
+		showLoading();
+		var myfileurl = "home.html";
+		$('body').load(myfileurl, function() {});	
 	}
 	init();
+	

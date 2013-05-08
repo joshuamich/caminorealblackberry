@@ -8,16 +8,25 @@
     </tr>
     <tr>
         <td class="bgInterna">
-            <h1>Contacto</h1>
+            <h1 id="titulo_pagina">Contacto</h1>
             <form id="formContacto" onsubmit="return validacion()" method="">
                 <input type="text" value="Nombre" class="caja" id="nombre"/>
                 <input type="text" value="Email" class="caja" id="email"/>
                 <textarea class="caja" id="mensaje">Agregar mensaje</textarea>
-                <input type="submit" name="submit" value="Enviar"/>
+                <input type="submit" name="submit" value="Enviar" id="button_enviar"/>
             </form>
         </td>
     </tr>
 </table>
+<div id="modalCanvas" >
+		</div>
+        <div id="loadingCanvas" style="text-align:center;">
+            <img src="images/loading.gif" style="margin:0 auto;"/>
+            <br />
+            <a style="font-size:medium;">Cargando...</a>
+            <br />
+            <a style="font-size:small;">Buscando actualizaciones.</a>
+        </div>
 <script type="text/javascript">
 $(document).ready(function() {
     $(".caja").focus(function() {
