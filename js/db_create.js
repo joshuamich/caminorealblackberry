@@ -13,29 +13,29 @@
 									tx.executeSql(
 									'CREATE TABLE IF NOT EXISTS hoteles (id int unique, nombre text, nombre_en text,imagen text,updated DATETIME NOT NULL)',
 									[],
-									function (tx, res) {	log("Table hoteles Created Successfully");	},
-									function (tx, err) {	log("ERROR - Table hoteles creation failed - code: " + err.code + ", message: " + err.message);	}
+									function (tx, res) {	log("Table Created Successfully");	},
+									function (tx, err) {	log("ERROR - Table creation failed - code: " + err.code + ", message: " + err.message);	}
 									);
 									
 									tx.executeSql(
 									'CREATE TABLE IF NOT EXISTS  contenidos (id int unique, hoteles_id int,nombre text,nombre_en text,descripcion text, descripcion_en text,imagen_destacada text,tipo text, updated DATETIME NOT NULL)',
 									[],
-									function (tx, res) {	log("Table  contenidos Created Successfully");	},
-									function (tx, err) {	log("ERROR - Table contenidos creation failed - code: " + err.code + ", message: " + err.message);	}
+									function (tx, res) {	log("Table Created Successfully");	},
+									function (tx, err) {	log("ERROR - Table creation failed - code: " + err.code + ", message: " + err.message);	}
 									);
 									
 									tx.executeSql(
 									'CREATE TABLE IF NOT EXISTS galeria (id int unique, contenidos_id int,imagen text)',
 									[],
-									function (tx, res) {	log("Table galeria Created Successfully");	},
-									function (tx, err) {	log("ERROR - Table galeria creation failed - code: " + err.code + ", message: " + err.message);	}
+									function (tx, res) {	log("Table Created Successfully");	},
+									function (tx, err) {	log("ERROR - Table creation failed - code: " + err.code + ", message: " + err.message);	}
 									);
 									
 									tx.executeSql(
 									'CREATE TABLE IF NOT EXISTS ubicaciones (id int unique, hoteles_id int,nombre text,nombre_en text, tipo text,lat_c text,long_c text,updated DATETIME NOT NULL)',
 									[],
-									function (tx, res) {	log("Table ubicaciones Created Successfully");	},
-									function (tx, err) {	log("ERROR - Table ubicaciones creation failed - code: " + err.code + ", message: " + err.message);	}
+									function (tx, res) {	log("Table Created Successfully");	},
+									function (tx, err) {	log("ERROR - Table creation failed - code: " + err.code + ", message: " + err.message);	}
 									);
 								}
 						);
@@ -62,10 +62,7 @@
 							}
 						}
 					);
-				//getContenidos();
-				if ( typeof init == 'function' ) { 
-						init(); 
-				}
+				getContenidos();
 			}
 		}
 		
@@ -189,7 +186,21 @@
 
 
 /***********		Version Controller		*************/
-		
+		try
+		{
+			if ( blackberry.system.hasDataCoverage()) {
+				getNewData();	
+			}else{
+				log('No data coverage');
+				if ( typeof init == 'function' ) { 
+						init(); 
+				}
+			}
+		}
+		catch(err)
+		{
+				log(err.message );
+		}
 		
 		
 		
@@ -372,10 +383,10 @@
 
 		//var base_url			=	"http://127.0.0.1/caminorealAdministrator/";
 		var base_url			=	"http://innotechsa.com/caminorealbb_Administrator/";
-		var hoteles_url			=	base_url + "ws2.php?option=hoteles_complete";
-		var contenidos_url		=	base_url + "ws2.php?option=contenidos";
-		var galerias_url		=	base_url + "ws2.php?option=galerias";
-		var ubicaciones_url		=	base_url + "ws2.php?option=ubicaciones";
+		var hoteles_url			=	base_url + "ws.php?option=hoteles";
+		var contenidos_url		=	base_url + "ws.php?option=contenidos";
+		var galerias_url		=	base_url + "ws.php?option=galerias";
+		var ubicaciones_url		=	base_url + "ws.php?option=ubicaciones";
 		
 		function getHoteles(){
 				if(!last_sync_date){
@@ -555,22 +566,4 @@
 				log(err.message );
 		}
 		
-	function init_db(){
-		try
-		{
-			if ( blackberry.system.hasDataCoverage()) {
-				getNewData();	
-			}else{
-				log('No data coverage');
-				if ( typeof init == 'function' ) { 
-						init(); 
-				}
-			}
-		}
-		catch(err)
-		{
-				log(err.message );
-		}
-	}
 		
-	init_db();
