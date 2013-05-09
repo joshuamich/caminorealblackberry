@@ -6,7 +6,7 @@
 	var contenidos_id;
 	var galerias_id;
 	var return_page;
-	var idioma='es';
+	var idioma="es";
 /****************************Navigation Functions****************************/
 
 	function highlight(e) {
