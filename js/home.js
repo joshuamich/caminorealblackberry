@@ -1,28 +1,69 @@
 	try{
-		if (blackberry.ui.menu.getMenuItems().length > 0) {
+			if (blackberry.ui.menu.getMenuItems().length > 0) {
+					blackberry.ui.menu.clearMenuItems();
+				}
+				var estiloitemMenu	= 	"";
+				var get_data 		= 	new blackberry.ui.menu.MenuItem(false, 1, estiloitemMenu + "Insert Hoteles", getHoteles);
+				var get_cdata 		= 	new blackberry.ui.menu.MenuItem(false, 1, estiloitemMenu + "Insert Contenidos", getContenidos);
+				var get_gdata 		= 	new blackberry.ui.menu.MenuItem(false, 1, estiloitemMenu + "Insert Galeria", getGalerias);
+				var get_udata 		= 	new blackberry.ui.menu.MenuItem(false, 1, estiloitemMenu + "Insert Ubicaciones", getUbicaciones);
+				var display_data 	= 	new blackberry.ui.menu.MenuItem(false, 1, estiloitemMenu + "Display Hoteles", displayHoteles);
+				var counth_data 	= 	new blackberry.ui.menu.MenuItem(false, 1, estiloitemMenu + "Count Hoteles Data", countHoteles);
+				var countc_data 	= 	new blackberry.ui.menu.MenuItem(false, 1, estiloitemMenu + "Count contenidos Data", countContenidos);
+				var countg_data 	= 	new blackberry.ui.menu.MenuItem(false, 1, estiloitemMenu + "Count galerias Data", countGalerias);
+				var countu_data 	= 	new blackberry.ui.menu.MenuItem(false, 1, estiloitemMenu + "Count ubicaciones Data", countUbicaciones);
+				var delete_data 	= 	new blackberry.ui.menu.MenuItem(false, 1, estiloitemMenu + "Borrar Data all", deleteHoteles);
+				blackberry.ui.menu.addMenuItem(get_data);
+				blackberry.ui.menu.addMenuItem(get_cdata);
+				blackberry.ui.menu.addMenuItem(get_gdata);
+				blackberry.ui.menu.addMenuItem(get_udata);
+				blackberry.ui.menu.addMenuItem(display_data);
+				blackberry.ui.menu.addMenuItem(counth_data);
+				blackberry.ui.menu.addMenuItem(countc_data);
+				blackberry.ui.menu.addMenuItem(countg_data);
+				blackberry.ui.menu.addMenuItem(countu_data);
+				blackberry.ui.menu.addMenuItem(delete_data);
+		
+		/*	if (blackberry.ui.menu.getMenuItems().length > 0) {
 			blackberry.ui.menu.clearMenuItems();
 		}
 	
 	
-		var idioma_espanol = new blackberry.ui.menu.MenuItem(false, 1, "Español", idiomaespanol);
+	var idioma_espanol = new blackberry.ui.menu.MenuItem(false, 1, "Español", idiomaespanol);
 		var idioma_ingles = new blackberry.ui.menu.MenuItem(false, 1, "English", idiomaingles);
 		blackberry.ui.menu.addMenuItem(idioma_espanol);
 		blackberry.ui.menu.addMenuItem(idioma_ingles);
 		blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,function() { 
-		});
-	}catch(err){
-			log(err.message );
-	}
+		});*/
+	
+	
 	
 	if (window.openDatabase){
-						mynamespace.db = window.openDatabase('caminoreal', '', 'Camino Real DB', 10 * 1024 * 1024, error_onDB);
+			alert('opening database from home.js');
+			mynamespace.db = window.openDatabase('cm8', '', 'Camino 8 DB8', 10 * 1024 * 1024, error_onDB);
+			
+			/*if(mynamespace.db.version!='1.2'){
+					try {
+						mynamespace.db.changeVersion(mynamespace.db.version, "1.2", cv_1_0_1_2, oops_1_0_1_2, success_1_0_1_2);
+					} catch(e) {
+						alert('changeversion 1.0 -> 2.0 failed');
+						alert('DB Version: '+mynamespace.db.version);
+					}
+			}*/
+	}else{
+			alert("This device does not have HTML5 Database support");
+	}
+	
+	}catch(err){
+			alert(err.message +' code: '+ err.code);
 	}
 	
 	function error_onDB(database){
-		log('error open db in home.js');
-	}	
+		alert('error opening from home.js');
+	}
+	
 	/*function error_onDB(database){
-			function onDBCreate(database) {
+			/*function onDBCreate(database) {
 						mynamespace.db 	= 	database;
 						database.transaction(
 								function (tx) {
@@ -55,8 +96,8 @@
 									);
 								}
 						);
-				}	
-	}*/
+				}
+	}*/	
 		
 	function init_home(){
 			if (typeof mynamespace === 'undefined') {
@@ -103,4 +144,4 @@
 	}
 	
 	
-	init_home();
+	//init_home();
