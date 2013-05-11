@@ -2,24 +2,23 @@
 		if (blackberry.ui.menu.getMenuItems().length > 0) {
 			blackberry.ui.menu.clearMenuItems();
 		}
-	
-	
+		
 		var idioma_espanol = new blackberry.ui.menu.MenuItem(false, 1, "Español", idiomaespanol);
 		var idioma_ingles = new blackberry.ui.menu.MenuItem(false, 1, "English", idiomaingles);
 		blackberry.ui.menu.addMenuItem(idioma_espanol);
 		blackberry.ui.menu.addMenuItem(idioma_ingles);
 		blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,function() { 
 		});
-	}catch(err){
-			log(err.message );
-	}
 	
-	if (window.openDatabase){
-						mynamespace.db = window.openDatabase('caminoreal', '', 'Camino Real DB', 10 * 1024 * 1024, error_onDB);
-	}
-	
-	function error_onDB(database){
+		if (!mynamespace.db){
+				mynamespace.db = window.openDatabase('DB_CaminoRealv2', '', 'DBCaminoRealv2', 20 * 1024 * 1024, error_onDB);
+		}
 		
+		function error_onDB(database){
+			log('error on opening db home.js');
+		}
+	}catch(err){
+		log(err.message );
 	}	
 	/*function error_onDB(database){
 			function onDBCreate(database) {
@@ -59,9 +58,8 @@
 	}*/
 		
 	function init_home(){
-			if (typeof mynamespace === 'undefined') {
-					mynamespace = {};
-			}
+			
+			
 			if(mynamespace.db){
 					mynamespace.db.readTransaction(
 						function (t) {
@@ -90,9 +88,6 @@
 		var myfileurl = "menuprincipal.html";
 		$('body').load(myfileurl, function() {});
 	}
-	
-	
-
 	
 	function idiomaespanol(){
 		cambiar_idioma('es'); 

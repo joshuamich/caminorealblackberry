@@ -1,11 +1,3 @@
-/* 
-    Document   : styles
-    Created on : Apr 9, 2013, 11:05:15 AM
-    Author     : MAS2
-    Description:
-        Purpose of the stylesheet follows.
-*/
-
 body {
     margin: 0;
     padding: 0;
@@ -38,6 +30,7 @@ table#homecontenido {
     border-spacing: 0;
     background: #0c2963;
     color: #ffffff;
+	width:100%;
 }
 
 table#homecontenido td {

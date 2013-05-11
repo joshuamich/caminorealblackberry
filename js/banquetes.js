@@ -1,4 +1,6 @@
 // JavaScript Document// JavaScript Document
+
+
 var hoteles_id = $("body").attr("rel");
 if (blackberry.ui.menu.getMenuItems().length > 0) {
     blackberry.ui.menu.clearMenuItems();

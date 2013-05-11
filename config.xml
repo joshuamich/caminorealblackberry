@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets"
         xmlns:rim="http://www.blackberry.com/ns/widgets"
-        version="2.0.0.0" id="CaminorealApp">
+        version="2.1.0.0" id="AppCaminoReal2">
  
     <author href="http://www.masdigital.me/"
             rim:copyright="Copyright 1998-2013 MAS">Copyright 1998-2013 MAS
     </author>
  
-    <name>Hotel Camino Real</name>
+    <name>Camino Real Hotel v2</name>
  
     <description>
-        Hotel Camino Real
+        Camino Real Hotel v2
     </description>
     <rim:orientation mode="auto"/>
   

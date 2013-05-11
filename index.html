@@ -5,22 +5,43 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" href="css/styles.css" type="text/css">
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+        <link rel="stylesheet" href="css/smoothness/jquery-ui-1.10.3.custom.css" >
     </head>
-    <body rel="" page_id="">
-       	<div id="modalCanvas" style="display:block;">
-		</div>
-        <div id="loadingCanvas" style="text-align:center; display:block; width:100%; text-align:center">
-            <img src="images/loading.gif" style="margin: 0 auto;"/>
-            <br />
+    <body rel="" page_id="" bgcolor="#0c2963" style="background-color:#0c2963;">
+        <table>
+                <tr>
+                    <td id="header">
+                        <a>
+                            <img src="images/caminoRealLogo.png" width="20%"/>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <table id="homecontenido">
+                          <!-- <tr x-blackberry-focusable="true" onMouseOver="highlight(this);" onMouseOut="unhighlight(this);" onClick="showMenuPrincipal();">
+                                <td>
+                                    <img src="images/caminorealhome.jpg" width="100%"/>
+                                </td>
+                                <td>
+                                  Loading ...
+                                </td>
+                            </tr>-->
+                        </table>
+                    </td>
+                </tr>
+        </table>
+		<div id="modalCanvas">
+        </div>
+        <div id="loadingCanvas" style="text-align:center;">
+        	<img src="images/loading.gif" style="margin:0 auto;"/>
+        	<br />
             <a style="font-size:medium;">Cargando...</a>
             <br />
-            <a style="font-size:small;">Buscando actualizaciones.</a>
+            <a style="font-size:small;">Buscando información.</a>
         </div>
+		<script src="js/jquery-1.9.1.js"></script>
+       	<script type="text/javascript" src="js/db_create.js"></script>
+    	<!--<script type="text/javascript" src="js/actions.js"></script>-->
     </body>
-    	<script type="text/javascript" src="js/db_create.js"></script>
-    	<script type="text/javascript" src="js/jquery.js"></script>
-		<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-    	<script type="text/javascript" src="js/actions.js"></script>
-        <script type="text/javascript" src="http://maps.google.com/maps?file=api&v=2&key=AIzaSyDJLO88DIlh0d90HCOILvghMgny-Z_wdhw"></script>
 </html>

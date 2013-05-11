@@ -1,12 +1,3 @@
-// JavaScript Document
-/************************** Globales *********************************/
-
-	var anchoVentana = window.innerWidth;
-	var hoteles_id;
-	var contenidos_id;
-	var galerias_id;
-	var return_page;
-	var idioma="es";
 /****************************Navigation Functions****************************/
 
 	function highlight(e) {
@@ -45,7 +36,6 @@
 	
 	
 	function showInternas_Habitacion(contenidos_id) {
-		
 	    showLoading();
 		$("body").attr("page_id", contenidos_id);
 		var myfileurl = "internas.html";
@@ -97,5 +87,5 @@
 		var myfileurl = "home.html";
 		$('body').load(myfileurl, function() {});	
 	}
-	init();
+	//init();
 	
