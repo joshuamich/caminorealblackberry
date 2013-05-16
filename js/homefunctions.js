@@ -1,4 +1,8 @@
-//INSERT FUNC
+		
+		var anchoVentana = window.innerWidth;
+		var base_url	 = "http://innotechsa.com/caminorealbb_Administrator/";
+		
+		
 		function insertHoteles(array_hoteles) {
 			if(mynamespace.db){
 					mynamespace.db.transaction(

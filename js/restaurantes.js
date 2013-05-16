@@ -1,38 +1,81 @@
-// JavaScript Document// JavaScript Document
-var hoteles_id = $("body").attr("rel");
 
-function displayRestaurantes() {
-			if(idioma=='en'){
-					document.getElementById('titulo_pagina').innerHTML="Restaurants";
-			}
-			return_page="restaurantes.html";
-			blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,function() {   
-			   showLoading();
-				var myfileurl="menuprincipal.html";	
-				$('body').load(myfileurl, function() {
+	var hoteles_id = $("body").attr("rel");
+	var idioma 	   = document.documentElement.lang;
+
+	function displayRestaurantes() {
+		
+				if(idioma=='en'){
+						document.getElementById('titulo_pagina').innerHTML="Restaurants";
+				}
+				
+				
+				$("body").attr("return_page","restaurantes.html");
+				blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,function() {   
+						showLoading();
+						var myfileurl="menuprincipal.html";	
+						$('body').load(myfileurl, function() {
+						});
 				});
-			});
-			if(mynamespace.db){
-					mynamespace.db.readTransaction(
-						function (t) {
-							t.executeSql('SELECT id, nombre, nombre_en  FROM contenidos WHERE hoteles_id = '+hoteles_id+' AND tipo = "Restaurante" ORDER BY nombre ASC', [], 
-										function (tx, results) {
-												var i;
-												var len = results.rows.length;
-												var html_item = '';
-												for (i = 0; i < len; i++) {
-														var nombre=results.rows.item(i).nombre;
-														if(idioma =='en'){	nombre=results.rows.item(i).nombre_en;	}
-														 html_item = html_item + '<li x-blackberry-focusable="true" onmouseover="highlightHabitaciones(this);" onmouseout="unhighlightHabitaciones(this);" onclick="showInternas_Habitacion('+results.rows.item(i).id+');">'+nombre+'</li>';
-												}
-												document.getElementById('menuinternoslistado').innerHTML=html_item;
-										}
-							);
-						}
-					);
-			}
-}
+				
+				
+				if(mynamespace.db){
+						mynamespace.db.readTransaction(
+							function (t) {
+								t.executeSql('SELECT id, nombre, nombre_en  FROM contenidos WHERE hoteles_id = '+hoteles_id+' AND tipo = "Restaurante" ORDER BY nombre ASC', [], 
+											function (tx, results) {
+													var i;
+													var len = results.rows.length;
+													var html_item = '';
+													for (i = 0; i < len; i++) {
+															var nombre=results.rows.item(i).nombre;
+															if(idioma =='en'){	nombre=results.rows.item(i).nombre_en;	}
+															 html_item = html_item + '<li x-blackberry-focusable="true" onmouseover="highlightHabitaciones(this);" onmouseout="unhighlightHabitaciones(this);" onclick="showInternas_Habitacion('+results.rows.item(i).id+');">'+nombre+'</li>';
+													}
+													document.getElementById('menuinternoslistado').innerHTML=html_item;
+											}
+								);
+							}
+						);
+				}
+	}
 
-if(hoteles_id != ""){
-	displayRestaurantes();
-}
+
+	function showInternas_Habitacion(contenidos_id) {
+			showLoading();
+			$("body").attr("page_id", contenidos_id);
+			var myfileurl = "internas.html";
+			$('body').load(myfileurl, function() {});
+	}
+	
+	function highlightHabitaciones(e) {
+			e.style.backgroundColor = "#d9dada";
+	}
+	
+	function unhighlightHabitaciones(e) {
+			e.style.backgroundColor = "#e8e8e8";
+	}
+	
+	function showLoading(){
+			document.getElementById("modalCanvas").style.display   = 'block';
+			document.getElementById("loadingCanvas").style.display = 'block';
+	}
+	
+	function hideLoading(){
+			document.getElementById("modalCanvas").style.display   = 'none';
+			document.getElementById("loadingCanvas").style.display = 'none';
+	}
+		
+	function showHome(){
+			var myfileurl="home.html";
+			$('body').load(myfileurl, function() {});
+	}
+	
+	
+	
+	
+	if(hoteles_id != ""){
+			displayRestaurantes();
+	}else{
+			var myfileurl="menuprincipal.html";	
+			$('body').load(myfileurl, function() {});
+	}

@@ -1,17 +1,25 @@
-// JavaScript Document
-var hoteles_id = $("body").attr("rel");
 
-function displayServicios() {
-			if(idioma=='en'){
+	var hoteles_id = $("body").attr("rel");
+	var idioma 	   = document.documentElement.lang;
+
+
+
+	function displayServicios() {
+				
+			if(idioma == 'en'){
 				document.getElementById('titulo_pagina').innerHTML="Services";
 			}
-			return_page="servicios.html";
+			
+			
+			$("body").attr("return_page","servicios.html");
 			blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,function() {   
-			   showLoading();
+				showLoading();
 				var myfileurl="menuprincipal.html";	
 				$('body').load(myfileurl, function() {
 				});
 			});
+			
+			
 			if(mynamespace.db){
 					mynamespace.db.readTransaction(
 						function (t) {
@@ -33,8 +41,46 @@ function displayServicios() {
 						}
 					);
 			}
-}
-
-if(hoteles_id != ""){
-	displayServicios();
-}
+	}
+	
+	
+	
+	
+	function showInternas_Habitacion(contenidos_id) {
+	    showLoading();
+		$("body").attr("page_id", contenidos_id);
+		var myfileurl = "internas.html";
+		$('body').load(myfileurl, function() {});
+	}
+	
+	function highlightHabitaciones(e) {
+		e.style.backgroundColor = "#d9dada";
+	}
+	
+	function unhighlightHabitaciones(e) {
+		e.style.backgroundColor = "#e8e8e8";
+	}
+	
+	function showLoading(){
+		document.getElementById("modalCanvas").style.display   = 'block';
+		document.getElementById("loadingCanvas").style.display = 'block';
+	}
+	
+	function hideLoading(){
+		document.getElementById("modalCanvas").style.display   = 'none';
+		document.getElementById("loadingCanvas").style.display = 'none';
+	}
+		
+	function showHome(){
+		var myfileurl="home.html";
+		$('body').load(myfileurl, function() {});
+	}
+	
+	
+	
+	if(hoteles_id != ""){
+		displayServicios();
+	}else{
+		var myfileurl="menuprincipal.html";	
+		$('body').load(myfileurl, function() {});
+	}

@@ -1,5 +1,6 @@
-	var base_url			=	"http://innotechsa.com/caminorealbb_Administrator/";
-	var contenidos_url		=	base_url + "ws.php?option=contenidos";
+	var base_url		=	"http://innotechsa.com/caminorealbb_Administrator/";
+	var contenidos_url	=	base_url + "ws.php?option=contenidos";
+	var idioma 			=   document.documentElement.lang;
 	
 	function getContenidos(){
 					try{
@@ -17,14 +18,11 @@
 															 ultima_fecha_actualizacion = results.rows.item(i).last_sync;
 													}	
 													 getXMLContenidos(ultima_fecha_actualizacion);
-													
 											}
 										);
 									}
 								);
 							}
-							
-							
 					}catch(err){
 							log(err.message );
 					}
@@ -32,6 +30,7 @@
 	}
 		
 	function getXMLContenidos(ufecha){
+		try{
 				if(blackberry.system.hasDataCoverage()){
 						var xmlhttp = new XMLHttpRequest();
 						xmlhttp.onreadystatechange=function(){
@@ -39,19 +38,18 @@
 									parser_Contenidos(xmlhttp.responseText);
 							}else if(xmlhttp.readyState==4 && xmlhttp.status!=200){
 									 hideLoading();
-									 displayMenu();
 							}
 						}
-						
 						xmlhttp.open("GET",contenidos_url+"&fecha="+ufecha+"&hoteles_id="+hoteles_id_s,true);
 						xmlhttp.send();
 				}else{
-						hideLoading();
-						 displayMenu();
+						hideLoading();						
 				}
+		}catch(err){		log(err.message );		}
 	}	
 	
 	function parse_insert_contenidos(xmlstring){
+			try{
 				var parser		 = 	new DOMParser();
 				var xmlDocument  = 	parser.parseFromString( xmlstring, "text/xml" );
 				var items 	 	 = 	xmlDocument.getElementsByTagName("item");
@@ -91,34 +89,37 @@
 					}
 				}
 				insertContenidos(array_contenidos);
+			}catch(err){		log(err.message );		}
 		}
 	
 	function insertContenidos(array_contenidos) {
-			if(mynamespace.db){
-					mynamespace.db.transaction(
-						function (t) {
-							var i;
-							for (i = 0; i < array_contenidos.length; i++){
-								var item_obj 		=	array_contenidos[i];
-								var insert_query	=	'INSERT INTO contenidos (id,hoteles_id, nombre,nombre_en,descripcion,descripcion_en,imagen_destacada,tipo,updated) VALUES ('+item_obj[0]+', "'+item_obj[1]+'","'+item_obj[2]+'","'+item_obj[3]+'","'+item_obj[4]+'","'+item_obj[5]+'","'+item_obj[6]+'","'+item_obj[7]+'","'+item_obj[8]+'")';
-								var delete_query 	=	'DELETE FROM contenidos WHERE id=' + item_obj[0] + ' ';
-								t.executeSql(delete_query);
-								t.executeSql(insert_query,
-											[],
-											function (tx, res) {	log("row Created Successfully");	},
-											function (tx, err) {	log("ERROR - row creation failed - code: " + err.code + ", message: " + err.message);	}
-											);
+			try{
+				if(mynamespace.db){
+						mynamespace.db.transaction(
+							function (t) {
+								var i;
+								for (i = 0; i < array_contenidos.length; i++){
+									var item_obj 		=	array_contenidos[i];
+									var delete_query 	=	'DELETE FROM contenidos WHERE id=' + item_obj[0] + ' ';
+									var insert_query	=	'INSERT INTO contenidos (id,hoteles_id, nombre,nombre_en,descripcion,descripcion_en,imagen_destacada,tipo,updated) VALUES ('+item_obj[0]+', "'+item_obj[1]+'","'+item_obj[2]+'","'+item_obj[3]+'","'+item_obj[4]+'","'+item_obj[5]+'","'+item_obj[6]+'","'+item_obj[7]+'","'+item_obj[8]+'")';
+									t.executeSql(delete_query);
+									t.executeSql(insert_query,
+												[],
+												function (tx, res) {	log("row Created Successfully");	},
+												function (tx, err) {	log("ERROR - row creation failed - code: " + err.code + ", message: " + err.message);	}
+												);
+								}
+								hideLoading();		
 							}
-						}
-					);
-					
-			}
+						);
+						
+				}
+			
+			}catch(err){		log(err.message );		}
 	}
 					
 	function parser_Contenidos(xmlstring){	
 			parse_insert_contenidos(xmlstring);
-			hideLoading();
-			 displayMenu();
 	}
 	
 	function displayMenu(){
@@ -126,12 +127,57 @@
 			$('#menu_general').css('width', '100%');
 	}
 	
+	function log(message){	/*alert('CONSOLE.LOG: ' + message);	if(typeof console == "object"){		console.log(message);  }*/		}
+	
+	
+	function highlight(e) {
+		e.style.backgroundColor = "#0a3a82";
+	}
+	
+	function unhighlight(e) {
+		e.style.backgroundColor = "#0c2963";
+	}
+	
+	function showLoading(){
+		document.getElementById("modalCanvas").style.display   = 'block';
+		document.getElementById("loadingCanvas").style.display = 'block';
+	}
+	
+	function hideLoading(){
+		document.getElementById("modalCanvas").style.display   = 'none';
+		document.getElementById("loadingCanvas").style.display = 'none';
+	}
 	
 	function showReservar() {
-		showLoading();
-		var myfileurl = "reservar.html";
-		$('body').load(myfileurl, function() {
-		});
+		try{
+			var booking_url="";
+			var ultima_fecha_actualizacion='2000-01-01';
+			if(mynamespace.db){
+				mynamespace.db.readTransaction(
+					function (t) {
+						t.executeSql('SELECT booking FROM hoteles WHERE id='+hoteles_id_s, [], 
+							function (tx, results) {
+									var i;
+									var len = results.rows.length;
+									var last_date_sync;
+									for (i = 0; i < len; i++) {
+											 booking_url = results.rows.item(i).booking;
+									}	
+									
+									if(booking_url!=''){
+										var args = new blackberry.invoke.BrowserArguments(booking_url);
+										blackberry.invoke.invoke(blackberry.invoke.APP_BROWSER, args);
+									}else{
+										alert('No existe enlace de reserva para este hotel. /npor favor intente el formulario de contacto');	
+									}
+							}
+						);
+					}
+				);
+			}				
+		}catch(err){
+				log(err.message );
+		}
 	}
 	
 	function showHabitaciones() {
@@ -183,33 +229,46 @@
 		});
 	}
 	
+	function showContacto() {
+		showLoading();
+		var myfileurl = "contacto.html";
+		$('body').load(myfileurl, function() {
+		});
+	}
+	
 	function initMenuPrincipal(){
-		if (blackberry.ui.menu.getMenuItems().length > 0) {
-			blackberry.ui.menu.clearMenuItems();
-		}
+		try{
+			showLoading();
+			if (blackberry.ui.menu.getMenuItems().length > 0) {
+				blackberry.ui.menu.clearMenuItems();
+			}
+			
+			blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,function() {   
+					showLoading();
+					var myfileurl="home.html";	
+					$('body').load(myfileurl, function() {
+					});
+			});
+			
+			getContenidos();
+			
+			if(idioma=='en'){
+					document.getElementById('button_reservar').innerHTML	="Book";
+					document.getElementById('button_habitaciones').innerHTML="Rooms";
+					document.getElementById('button_servicios').innerHTML	="Services";
+					document.getElementById('button_restaurantes').innerHTML="Restaurants";
+					document.getElementById('button_banquetes').innerHTML	="Banquet";
+					document.getElementById('button_promociones').innerHTML	="Promotions";
+					document.getElementById('button_facilidades').innerHTML	="Facilities";
+					document.getElementById('button_mapa').innerHTML		="Maps";
+					document.getElementById('button_contacto').innerHTML	="Contact";
+			}
+		}catch(err){		log(err.message );		}
 		
-		blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,function() {   
-				showLoading();
-				var myfileurl="index.html";	
-				$('body').load(myfileurl, function() {
-				});
-		});	
+	}
+	
+	function log(message){	/*alert('CONSOLE.LOG: ' + message);	if(typeof console == "object"){		console.log(message);  }*/		}
+	
 		
-		getContenidos();
-		
-		if(idioma=='en'){
-				document.getElementById('button_reservar').innerHTML	="Book";
-				document.getElementById('button_habitaciones').innerHTML="Rooms";
-				document.getElementById('button_servicios').innerHTML	="Services";
-				document.getElementById('button_restaurantes').innerHTML="Restaurants";
-				document.getElementById('button_banquetes').innerHTML	="Banquet";
-				document.getElementById('button_promociones').innerHTML	="Promotions";
-				document.getElementById('button_facilidades').innerHTML	="Facilities";
-				document.getElementById('button_mapa').innerHTML		="Maps";
-				document.getElementById('button_contacto').innerHTML	="Contact";
-		}
-		
-		
-	}	
 	var hoteles_id_s = $("body").attr("rel");
 	initMenuPrincipal();

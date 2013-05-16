@@ -8,17 +8,15 @@
     </tr>
     <tr>
         <td class="bgInterna">
-            <h1 id="titulo_tipo">Habitaciones</h1>
-            <div id="tituloInterna"><span id="texto_titulo">Deluxe Room</span>
-                <img src="images/galeriaInterna.jpg" height="85%" x-blackberry-focusable="true" onmouseover="highlightBotonTitulo(this);" onmouseout="unhighlightBotonTitulo(this);" onclick="showGaleria();"/>
-                <img id="contactoButton" src="images/contactoInterna.jpg" height="85%" x-blackberry-focusable="true" onmouseover="highlightBotonTitulo(this);" onmouseout="unhighlightBotonTitulo(this);" onclick="showContacto();"/>
+            <h1 id="titulo_tipo"></h1>
+            <div id="tituloInterna">
+            		<span id="texto_titulo"></span>
+                    <img src="images/galeriaInterna.jpg" height="85%" x-blackberry-focusable="true" onmouseover="highlightBotonTitulo(this);" onmouseout="unhighlightBotonTitulo(this);" onclick="showGaleria();"/>
+                    <img src="images/contactoInterna.jpg" height="85%" x-blackberry-focusable="true" onmouseover="highlightBotonTitulo(this);" onmouseout="unhighlightBotonTitulo(this);" onclick="showContacto();" id="contactoButton"/>
             </div>
             <div id="contenidoInterna">
-                <img src="images/contenidoDestacada.jpg" id="destacada"/>
-               <p id="descripcion_interna"> 
-                  
-                  
-                </p>
+                    <img src="images/contenidoDestacada.jpg" id="destacada"/>
+                    <p id="descripcion_interna"></p>
             </div>
         </td>
     </tr>
@@ -32,4 +30,5 @@
     <br />
     <a style="font-size:small;">Buscando actualizaciones.</a>
 </div>
+<script src="js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="js/interna.js"></script>

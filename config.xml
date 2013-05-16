@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets"
         xmlns:rim="http://www.blackberry.com/ns/widgets"
-        version="2.1.0.0" id="AppCaminoReal2">
+        version="2.1.0.0" id="AppCaminoReal3">
  
     <author href="http://www.masdigital.me/"
             rim:copyright="Copyright 1998-2013 MAS">Copyright 1998-2013 MAS
     </author>
  
-    <name>Camino Real Hotel v2</name>
+    <name>Camino Real Hotel v3</name>
  
     <description>
-        Camino Real Hotel v2
+        Camino Real Hotel v3
     </description>
     <rim:orientation mode="auto"/>
-  
+    
     <rim:navigation mode="focus" />
  
-    <rim:loadingScreen backgroundcolor="#FFFFFF" 
+    <rim:loadingScreen backgroundcolor="#0C2963" 
                        onLocalPageLoad="true"
-                       backgroundImage="images/backgroundgray.png" 
-                       foregroundImage="images/home/loading.gif"
+                       backgroundImage="images/backgroundblue.png" 
+					   foregroundImage="images/loading.gif"
                        onFirstLaunch="true">
-        <rim:transitionEffect type="zoomIn"/>
+    <rim:transitionEffect type="zoomIn"/>
+	
     </rim:loadingScreen>
     <icon src="images/icon.png"/>
     <icon src="images/icon.png" rim:hover="true"/>
  
     <rim:cache maxCacheSizeTotal="2048" maxCacheSizeItem ="256" />
  
-    <content src="index.html" >
-    </content>
+    <content src="index.html" ></content>
  	<feature id="blackberry.system" />
     <feature id="blackberry.ui.dialog" />
     <feature id="blackberry.invoke" />
@@ -40,6 +40,7 @@
     <feature id="blackberry.ui.menu" />
     <access subdomains="true" uri="http://gstatic.com"/>
     <access subdomains="true" uri="http://googleapis.com"/>
+	<access subdomains="true" uri="http://google.com"/>
     <access subdomains="true" uri="http://innotechsa.com"/>
     <access subdomains="true" uri="http://ustream.tv"/>
     <access subdomains="true" uri="http://youtube.com"/>
